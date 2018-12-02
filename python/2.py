@@ -38,11 +38,7 @@ def checksum() -> int:
 
 def num_differences(a: str, b: str) -> int:
     assert len(a) == len(b)
-    n = 0
-    for idx in range(0, len(a)):
-        if a[idx] != b[idx]:
-            n += 1
-    return n
+    return sum([1 if c != d else 0 for (c,d) in zip(a,b)])
 
 
 def find_similar_ids() -> Tuple[str,str]:
