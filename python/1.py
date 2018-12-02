@@ -5,7 +5,7 @@ def parse_line(line: str) -> int:
     return int(line)
 
 def get_changes() -> Iterator[int]:
-    path = '../input'
+    path = '../input/1'
     with open(path) as f:
         for line in f:
             yield parse_line(line.strip())
