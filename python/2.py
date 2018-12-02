@@ -1,4 +1,4 @@
-from typing import Dict, List, Iterator
+from typing import Dict, List, Iterator, Tuple
 
 
 def input_lines() -> Iterator[str]:
@@ -36,5 +36,40 @@ def checksum() -> int:
     return num_2 * num_3
 
 
+def num_differences(a: str, b: str) -> int:
+    assert len(a) == len(b)
+    n = 0
+    for idx in range(0, len(a)):
+        if a[idx] != b[idx]:
+            n += 1
+    return n
+
+
+def find_similar_ids() -> Tuple[str,str]:
+    box_ids = [box_id for box_id in input_lines()]
+    # Let's just brute-force it because we only have 30k combinations to check
+    for first in range(0, len(box_ids)):
+        for second in range(first+1, len(box_ids)):
+            pair = (box_ids[first], box_ids[second])
+            if num_differences(*pair) == 1:
+                return pair
+    raise Exception("No pair found")
+
+
+def common_letters(a: str, b: str) -> str:
+    assert len(a) == len(b)
+    common = []
+    for idx in range(0, len(a)):
+        if a[idx] == b[idx]:
+            common.append(a[idx])
+    return ''.join(common)
+
+
+def part2_solution() -> str:
+    similar_pair = find_similar_ids()
+    return common_letters(*similar_pair)
+
+
 if __name__ == '__main__':
     print(f"Part 1: {checksum()}")
+    print(f"Part 2: {part2_solution()}")
