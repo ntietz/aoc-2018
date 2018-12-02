@@ -26,6 +26,7 @@ def find_repeat_frequency() -> int:
         if freq in seen:
             return freq
         seen.add(freq)
+    raise Exception("No repeats found")
 
 if __name__ == '__main__':
     print(compute_frequency())
