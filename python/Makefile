@@ -1,4 +1,4 @@
 
 mypy:
-	pipenv run mypy 1.py 2.py
+	pipenv run mypy 1.py 2.py 3.py
 
