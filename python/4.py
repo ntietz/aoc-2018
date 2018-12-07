@@ -4,7 +4,7 @@ import re
 
 class Timestamp(NamedTuple):
     year: int
-    mont: int
+    month: int
     day: int
     hour: int
     minute: int
