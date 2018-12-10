@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 mypy = "*"
 regex = "*"
+line-profiler = "*"
 
 [requires]
 python_version = "3.6"
