@@ -52,7 +52,7 @@ def print_coords(coords: List[Coord]) -> None:
     min_x, max_x = min(xs), max(xs)
     min_y, max_y = min(ys), max(ys)
 
-    grid = []
+    grid: List[List[str]] = []
     for y in range(0, max_y - min_y + 1):
         grid.append([])
         for x in range(0, max_x - min_x + 1):
